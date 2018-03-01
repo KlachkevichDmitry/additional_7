@@ -1,6 +1,5 @@
 module.exports = function solveSudoku(matrix) {
 
-//массив чисел в строке
     function numberInRow(row) {
         let arr=[];
         for (let column=0; column<9; column++) {
@@ -9,7 +8,6 @@ module.exports = function solveSudoku(matrix) {
         return arr;
     }
 
-//массив чисел в столбце
     function numberInColumn(column){
         let arr=[];
         for (let row=0; row<9; row++) {
@@ -18,7 +16,6 @@ module.exports = function solveSudoku(matrix) {
         return arr;
     }
 
-//массив чисел в квадрате
     function numberInSquare(row,column) {
         let arr=[];
         row=Math.floor(row/3)*3;
@@ -32,7 +29,6 @@ module.exports = function solveSudoku(matrix) {
         return arr;
     }
 
-
     function numbers(row,column) {
         var numRow=numberInRow(row);
         var numCol=numberInColumn(column);
@@ -40,7 +36,6 @@ module.exports = function solveSudoku(matrix) {
         var numbersAll=numRow.concat(numCol.concat(numSq));
         return [1,2,3,4,5,6,7,8,9].filter(num => numbersAll.indexOf(num) == -1);
     }
-
 
     function findNumber(row,column) {
         if (column==9) {
